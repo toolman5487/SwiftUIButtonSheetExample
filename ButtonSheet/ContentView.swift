@@ -8,15 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isPreesented = false
+    @State private var theItem:Item? = nil
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        Button {
+//            self.isPreesented.toggle()
+            theItem = Item(title: "Hello")
+        } label: {
+            Text("按鈕")
         }
-        .padding()
+        .buttonStyle(.borderedProminent)
+        .tint(.orange)
+        .buttonBorderShape(.capsule)
+        .sheet(item: $theItem) { item in
+            Text(item.title)
+        }
+//        .sheet(isPresented: $isPreesented, content: {
+//            Myview()
+//        })
+
+        }
     }
+
+struct Item:Identifiable{
+    let id = UUID()
+    let title:String
 }
 
 #Preview {
