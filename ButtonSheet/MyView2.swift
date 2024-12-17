@@ -9,7 +9,13 @@ import SwiftUI
 
 struct MyView2: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Spacer()
+            Image(systemName: "scribble.variable")
+                .resizable()
+                .aspectRatio(1,contentMode: .fit)
+            Spacer()
+        }.background(Color.yellow)
     }
 }
 
